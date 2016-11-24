@@ -1,0 +1,8 @@
+#бэкап базы
+mysqldump -uUSER –pPASSWORD DATABASE | gzip /path/DATABASE.sql.gz
+#для восстановления предварительно необходимо разархивировать
+mysql -uUSER –pPASSWORD DATABASE < /path/DATABASE.sql
+
+или 
+mysqldump {mysqldump options} | gzip > outputfile.sql.gz
+gunzip < outputfile.sql.gz | mysql {mysql options}
