@@ -6,3 +6,5 @@ mysql -uUSER –pPASSWORD DATABASE < /path/DATABASE.sql
 или 
 mysqldump {mysqldump options} | gzip > outputfile.sql.gz
 gunzip < outputfile.sql.gz | mysql {mysql options}
+
+tar -zcpvf ~/backup/site.tar.gz --exclude=wp-content/uploads --exclude=forum public_html
