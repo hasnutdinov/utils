@@ -8,3 +8,10 @@ mysqldump {mysqldump options} | gzip > outputfile.sql.gz
 gunzip < outputfile.sql.gz | mysql {mysql options}
 
 tar -zcpvf ~/backup/site.tar.gz --exclude=wp-content/uploads --exclude=forum public_html
+
+$re = '/["*|><^%]/'; 
+$str = 'aaaaa "bbb ccc* www| eee> <rrr ^ttt%'; 
+$subst = '';  //подставить что нибудь для замены
+ 
+$result = preg_replace($re, $subst, $str);
+//aaaaa bbb ccc www eee rrr ttt
