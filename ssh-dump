@@ -10,7 +10,9 @@ mysql -uUSER –pPASSWORD DATABASE < /path/DATABASE.sql
 mysqldump {mysqldump options} | gzip > outputfile.sql.gz
 gunzip < outputfile.sql.gz | mysql {mysql options}
 
+
 tar -zcpvf ~/backup/site.tar.gz --exclude=wp-content/uploads --exclude=forum public_html
+v - для отображения процесса
 
 $re = '/["*|><^%]/'; 
 $str = 'aaaaa "bbb ccc* www| eee> <rrr ^ttt%'; 
