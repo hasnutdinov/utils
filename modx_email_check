@@ -1,0 +1,19 @@
+<?php
+$to    = 'site@mail.ru';
+$theme = 'Site URL: ' . $modx->getOption('site_url');
+$body  = 'Test mail message';
+$from  = $modx->getOption('emailsender');
+
+$modx->getService('mail', 'mail.modPHPMailer');
+$modx->mail->address('to', $to);
+$modx->mail->set(modMail::MAIL_FROM, $from);
+$modx->mail->set(modMail::MAIL_FROM_NAME, 'Console');
+$modx->mail->set(modMail::MAIL_SUBJECT, $theme);
+$modx->mail->set(modMail::MAIL_BODY, $body);
+$modx->mail->setHTML(true);
+if (!$modx->mail->send()) {
+    echo 'Sending failed. Error: ' . $modx->mail->mailer->ErrorInfo;
+} else {
+    echo 'Success';
+}
+$modx->mail->reset();
